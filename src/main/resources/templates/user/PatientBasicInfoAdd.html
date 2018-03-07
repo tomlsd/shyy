@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <hr/>
+    <form class="form-horizontal"   th:action="@{/shyy/add}"  method="post">
+    <div>
+患者姓名：<input type="text"  name="name" style="height:20px;width: 100px;" />
+
+性别：<input type="text"  name="sex" style="height:20px;width: 100px;" />
+    </div>
+
+<hr/>
+        <div>
+          过敏史：<input type="text"  name="allergichistory" style="height:20px;width: 100px;" />
+
+
+
+        </div>
+
+
+
+        <input type="submit" value="完成登记" />
+
+
+
+
+
+
+</form>
+
+</div>
+
+
+
+</body>
+</html>

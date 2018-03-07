@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+
+
+    <link rel="stylesheet" type="text/css" href="../../static/css/easyui.css"  th:href="@{/css/easyui.css}" />
+    <link rel="stylesheet" type="text/css"  href="../../static/css/icon.css" th:href="@{/css/icon.css}" />
+    <link rel="stylesheet" type="text/css"  href="../../static/css/demo.css" th:href="@{/css/demo.css}" />
+    <script th:src="@{/scripts/jquery.min.js}" />
+    <script th:src="@{/scripts/jquery.easyui.min.js}" />
+    <script type="text/javascript">
+        function doSearch(){
+            $('#tt').datagrid('load',{
+                "id": $('#id').val(),
+                "lastname": $('#lastname').val()
+            });
+            alert($('#id').val());
+            alert($('#lastname').val());
+        }
+    </script>
+</head>
+<body>
+
+<h2>Add search functionality in DataGrid</h2>
+<div class="demo-info" style="margin-bottom:10px">
+    <div class="demo-tip icon-tip">&nbsp;</div>
+    <div>Enter search values and press search button.</div>
+</div>
+
+<table id="tt" class="easyui-datagrid" style="width:700px;height:250px"
+       url="/uiqs/qs"
+       title="Searching" iconCls="icon-search" toolbar="#tb"
+       rownumbers="true" pagination="true">
+    <thead>
+    <tr>
+        <th field="id" width="80">id</th>
+        <th field="firstname" width="120">firstname</th>
+        <th field="lastname" width="80" align="right">lastname</th>
+        <th field="phone" width="80" align="right">phone</th>
+        <th field="email" width="200">email</th>
+
+    </tr>
+    </thead>
+</table>
+<!--数据网格 - 添加查询功能-->
+<div id="tb" style="padding:3px">
+    <span>id:</span>
+    <input id="id" style="line-height:26px;border:1px solid #ccc"></input>
+    <span>lastname:</span>
+    <input id="lastname" style="line-height:26px;border:1px solid #ccc"></input>
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
+</div>
+<!--数据网格 - 添加工具栏-->
+<div id="tb">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:alert('Add')">Add</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true" onclick="javascript:alert('Cut')">Cut</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="javascript:alert('Save')">Save</a>
+</div>
+</body>
+</html>

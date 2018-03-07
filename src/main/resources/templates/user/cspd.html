@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>上和医院客户列表</title>
+
+    <script src="../../static/scripts/jquery.min.js" th:src="@{/scripts/jquery.min.js}"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#flip").click(function(){
+                $("#panel").slideDown("slow");
+            });
+        });
+    </script>
+    <style type="text/css">
+        #panel,#flip
+        {
+            padding:5px;
+            text-align:center;
+            background-color:#e5eecc;
+            border:solid 1px #c3c3c3;
+        }
+        #panel
+        {
+            padding:50px;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div id="flip">点我滑下面板</div>
+<div id="panel">Hello world!</div>
+<div  th:replace="/fragments/footer :: footer"></div>
+
+sdfd
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/easyui.css"  th:href="@{/css/easyui.css}" />
+    <link rel="stylesheet" type="text/css"  href="../../static/css/icon.css" th:href="@{/css/icon.css}" />
+    <script th:src="@{/scripts/jquery.min.js}" />
+    <script th:src="@{/scripts/jquery.easyui.min.js}" />
+    <style>
+        .panel-body{
+            background:#f0f0f0;
+        }
+        .panel-header{
+            background:#fff url('/images/panel_header_bg.gif') no-repeat top right;
+        }
+        .panel-tool-collapse{
+            background:url('/images/arrow_up.gif') no-repeat 0px -3px;
+        }
+        .panel-tool-expand{
+            background:url('/images/arrow_down.gif') no-repeat 0px -3px;
+        }
+    </style>
+</head>
+<body>
+<div style="width:200px;height:auto;background:#7190E0;padding:5px;">
+    <div class="easyui-panel" title="Picture Tasks" collapsible="true" style="width:200px;height:auto;padding:10px;">
+        View as a slide show<br/>
+        Order prints online<br/>
+        Print pictures
+    </div>
+    <br/>
+    <div class="easyui-panel" title="File and Folder Tasks" collapsible="true" style="width:200px;height:auto;padding:10px;">
+        Make a new folder<br/>
+        Publish this folder to the Web<br/>
+        Share this folder
+    </div>
+    <br/>
+    <div class="easyui-panel" title="Other Places" collapsible="true" collapsed="true" style="width:200px;height:auto;padding:10px;">
+        New York<br/>
+        My Pictures<br/>
+        My Computer<br/>
+        My Network Places
+    </div>
+    <br/>
+    <div class="easyui-panel" title="Details" collapsible="true" style="width:200px;height:auto;padding:10px;">
+        My documents<br/>
+        File folder<br/><br/>
+        Date modified: Oct.3rd 2010
+    </div>
+</div>
+
+<!--转换 HTML 表格为数据网格-->
+<h1>Convert a HTML table to DataGrid</h1>
+<table id="tt" class="easyui-datagrid" style="width:350px;height:auto;">
+    <thead>
+    <tr>
+        <th field="name1" width="50" rowspan="2">Col 1</th>
+        <th field="name2" width="50" rowspan="2">Col 2</th>
+        <th field="name3" width="50" rowspan="2">Col 3</th>
+        <th colspan="3">Details</th>
+    </tr>
+    <tr>
+        <th field="name4" width="50">Col 4</th>
+        <th field="name5" width="50">Col 5</th>
+        <th field="name6" width="50">Col 6</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Data 1</td>
+        <td>Data 2</td>
+        <td>Data 3</td>
+        <td>Data 4</td>
+        <td>Data 5</td>
+        <td>Data 6</td>
+    </tr>
+    <tr>
+        <td>Data 1</td>
+        <td>Data 2</td>
+        <td>Data 3</td>
+        <td>Data 4</td>
+        <td>Data 5</td>
+        <td>Data 6</td>
+    </tr>
+    <tr>
+        <td>Data 1</td>
+        <td>Data 2</td>
+        <td>Data 3</td>
+        <td>Data 4</td>
+        <td>Data 5</td>
+        <td>Data 6</td>
+    </tr>
+    <tr>
+        <td>Data 1</td>
+        <td>Data 2</td>
+        <td>Data 3</td>
+        <td>Data 4</td>
+        <td>Data 5</td>
+        <td>Data 6</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

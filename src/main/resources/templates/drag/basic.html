@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>基本的拖放</title>
+    <script th:src="@{/scripts/jquery.min.js}" />
+    <script th:src="@{/scripts/jquery.easyui.min.js}" />
+
+
+    <style type="text/css">
+        .dd-demo{
+            width:160px;
+            height:160px;
+            border:2px solid #d3d3d3;
+            position:absolute;
+        }
+        .proxy{
+            border:1px dotted #333;
+            width:600px;
+            height:60px;
+            text-align:center;
+            background:#fafafa;
+        }
+        #dd1{
+            background:#E0ECFF;
+            left:20px;
+            top:20px;
+        }
+        #dd2{
+            background:#8DB2E3;
+            left:100px;
+            top:20px;
+        }
+        #dd3{
+            background:#FBEC88;
+            left:180px;
+            top:20px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $('#dd1').draggable();
+            $('#dd2').draggable({
+                proxy:'clone'
+            });
+            $('#dd3').draggable({
+                proxy:function(source){
+                    var p = $('<div class="proxy">proxy</div>');
+                    p.appendTo('body');
+                    return p;
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<div id="dd1" class="dd-demo">
+    <p>医院名字：</p><input type="text" width="100"></input>
+</div>
+<div id="dd2" class="dd-demo"></div>
+<div id="dd3" class="dd-demo"></div>
+
+
+</body>
+</html>

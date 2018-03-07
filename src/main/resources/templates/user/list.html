@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>四川上和国际医院</title>
+    <style type="text/css">
+        * {
+            padding:0 auto;
+            margin:0 auto;
+        }
+    </style>
+    <script src="../../static/scripts/jquery-3.2.1.min.js" th:src="@{/scripts/jquery-3.2.1.min.js}"></script>
+
+</head>
+<body class="container" margintop="0px">
+
+<script>
+    $(document).ready(function(){
+        $("p").click(function(){
+            $(this).hide();
+        });
+    });
+</script>
+
+
+<div>
+    <div style="text-align: center;background-color: dodgerblue;height: 100px;margin-top: 0;color: ghostwhite">
+        <br/>
+        <h2 >上 和 医 院 信 息 系 统</h2>
+    </div>
+
+    <div  id="leftmenu" style="float: left;background-color: aqua;width: 200px;height: 700px">
+        <div id="lefttop1" >首页</div>
+<br/>
+        <div id="leftmenu2">挂号/接诊</div>
+<br/>
+        <div id="leftbottom3">门诊医生</div>
+<br/>
+            <div id="leftbottom4">门诊收费</div>
+    </div>
+
+
+
+<div  style="float: left;width: 500px;height: 700px">
+    <p>如果你点我，我就会消失。</p>
+    <p>继续点我!</p>
+    <p>接着点我!</p>
+    <p id="demo">hello</p>
+
+    <button type="button" onclick="displayDate()">显示日期</button>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>用户名</th>
+            <th>密码</th>
+            <th>年龄</th>
+            <th>修改操作</th>
+            <th>删除操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="user : ${users}">
+            <th scope="row" th:text="${user.id}">1</th>
+            <td th:text="${user.userName}">neo</td>
+            <td th:text="${user.password}">Otto</td>
+            <td th:text="${user.age}">6</td>
+            <td><a th:href="@{/user/toEdit(id=${user.id})}">编辑</a></td>
+
+            <td><a th:href="@{/user/delete(id=${user.id})}">删除</a></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<div class="form-group">
+    <div class="col-sm-2 control-label">
+        <a href="/user/toAdd" th:href="@{/user/toAdd}" class="btn btn-info">添加</a>
+    </div>
+</div>
+
+
+</div>
+
+<script>
+    function displayDate(){
+//        document.getElementById("demo").innerHTML=Date();
+
+//        $.get("/get/lei",{ name1: "John"},function(data,status){
+//            console.log("数据: " + data + "\n状态: " + status);
+//            var myuser = JSON.parse(data);
+//            console.log("名字：" + myuser.name);
+//            console.log("年龄：" + myuser.age);
+//            document.getElementById("demo").innerHTML=myuser.name+":"+myuser.age;
+//        });
+
+//        $.get("/get/idlei",{id:"66"},function(data,status){
+//            console.log("数据: " + data + "\n状态: " + status);
+//            var myuser = JSON.parse(data);
+//            console.log("名字：" + myuser.name);
+//            console.log("年龄：" + myuser.age);
+//            document.getElementById("demo").innerHTML=myuser.name+":"+myuser.age;
+//        });
+        $.get("/get/idlei",{xm:"四川省雷舜东",age:42},function (data,status) {
+
+         // var myuser = JSON.parse(data);
+        //console.log("名字：" + data.xm);
+       //console.log("年龄：" + data.age);
+   document.getElementById("demo").innerHTML=data;
+
+        });
+
+
+    }
+</script>
+
+</body>
+</html>

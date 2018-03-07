@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <script th:src="@{/scripts/getdatagrid.js}" />
+    <script th:src="@{/scripts/jquery.min.js}" />
+    <script th:src="@{/scripts/jquery.easyui.min.js}" />
+    <link rel="stylesheet" type="text/css" href="../../static/css/easyui.css"  th:href="@{/css/easyui.css}" />
+    <link rel="stylesheet" type="text/css"  href="../../static/css/icon.css" th:href="@{/css/icon.css}" />
+<script>
+  $(function () {$('#tt').datagrid('loadData', {"total":28,"rows":[
+          {"productid":"FI-SW-01","":10.00,"status":"P","listprice":16.50,"attr1":"Large","itemid":"EST-1"},
+          {"productid":"K9-DL-01","unitcost":12.00,"status":"P","listprice":18.50,"attr1":"Spotted Adult Female","itemid":"EST-10"},
+          {"productid":"RP-SN-01","unitcost":12.00,"status":"P","listprice":18.50,"attr1":"Venomless","itemid":"EST-11"},
+          {"productid":"RP-SN-01","unitcost":12.00,"status":"P","listprice":18.50,"attr1":"Rattleless","itemid":"EST-12"},
+          {"productid":"RP-LI-02","unitcost":12.00,"status":"P","listprice":18.50,"attr1":"Green Adult","itemid":"EST-13"},
+          {"productid":"FL-DSH-01","unitcost":12.00,"status":"P","listprice":58.50,"attr1":"Tailless","itemid":"EST-14"},
+          {"productid":"FL-DSH-01","unitcost":12.00,"status":"P","listprice":23.50,"attr1":"With tail","itemid":"EST-15"},
+          {"productid":"FL-DLH-02","unitcost":12.00,"status":"P","listprice":93.50,"attr1":"Adult Female","itemid":"EST-16"},
+          {"productid":"FL-DLH-02","unitcost":12.00,"status":"P","listprice":93.50,"attr1":"Adult Male","itemid":"EST-17"},
+          {"productid":"AV-CB-01","unitcost":92.00,"status":"P","listprice":193.50,"attr1":"Adult Male","itemid":"EST-18"}
+      ]}
+      )
+  })
+</script>
+
+
+
+
+</head>
+<body>
+<h1>DataGrid</h1>
+<div style="margin-bottom:20px">
+    <a href="#" onclick="getSelected()">GetSelected</a>
+    <a href="#" onclick="getSelections()">GetSelections</a>
+</div>
+<table id="tt" title="Load Data" class="easyui-datagrid" style="width:550px;height:250px"
+       iconCls="icon-save" pagination="true"  rownumbers="true"  multiple="false">
+    <thead>
+    <tr>
+        <th field="ck" checkbox="true"></th>
+        <th field="itemid" width="80">Item ID</th>
+        <th field="productid" width="80">Product ID</th>
+        <th field="listprice" width="80" align="right">List Price</th>
+        <th field="unitcost" width="80" align="right">Unit Cost</th>
+        <th field="attr1" width="100">Attribute</th>
+        <th field="status" width="60" align="center">Stauts</th>
+    </tr>
+    </thead>
+</table>
+
+
+
+</body>
+</html>

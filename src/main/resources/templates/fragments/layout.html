@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title >母版页</title>
+
+    <link th:href="@{/styles/global.css}"  rel="stylesheet" type="text/css"/>
+    <!--<link th:href="@{/styles/index.css}" rel="stylesheet"  type="text/css"/>-->
+
+
+
+</head>
+<body>
+<div class="headerBox">
+    <div class="topBox">
+        <div class="topLogo f-left">
+            <a href="#"><img th:src="@{/images/logo.png}"/></a>
+        </div>
+        <div class="new-nav">
+            <h1>上和医院信息管理系统1.0</h1>
+        </div>
+    </div>
+</div>
+<div class="locationLine" layout:fragment="prompt">
+    当前位置：首页 &gt; <em>页面</em>
+</div>
+<table class="globalMainBox" style="position:relative;z-index:1">
+    <tr>
+        <td class="columnLeftBox" valign="top">
+            <div th:replace="fragments/nav :: nav">左边导航栏</div>
+        </td>
+        <td class="whiteSpace">导航与内容间隔条</td>
+        <td class="rightColumnBox" valign="top">
+            <div layout:fragment="content">右边主要内容展示区</div>
+        </td>
+    </tr>
+</table>
+
+<div class="footBox" th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>菜单</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/easyui.css"  th:href="@{/css/easyui.css}" />
+    <link rel="stylesheet" type="text/css"  href="../../static/css/icon.css" th:href="@{/css/icon.css}" />
+    <script th:src="@{/scripts/jquery.min.js}" />
+    <script th:src="@{/scripts/jquery.easyui.min.js}" />
+    <script type="text/javascript">
+        $(function(){
+            $(document).bind('contextmenu',function(e){
+                $('#mm').menu('show', {
+                    left: e.pageX,
+                    top: e.pageY
+                });
+                return false;
+            });
+        });
+        function showmenu(){
+            $('#mm').menu('show', {
+                left: 200,
+                top: 100
+            });
+        }
+    </script>
+    <script>
+        function showcontent(language){
+            $('#content').html('Introduction to ' + language + ' language');
+        }
+
+    </script>
+
+</head>
+<body>
+<p>menu</p>
+<div>
+    Click <a href="#" onclick="showmenu()">here</a> to show the menu.
+</div>
+
+<div id="mm" class="easyui-menu" style="width:120px;">
+    <div onclick="javascript:alert('new')">New</div>
+    <div>
+        <span>Open</span>
+        <div style="width:150px;">
+            <div><b>Word</b></div>
+            <div>Excel</div>
+            <div>PowerPoint</div>
+        </div>
+    </div>
+    <div icon="icon-save">Save</div>
+    <div class="menu-sep"></div>
+    <div>Exit</div>
+</div>
+
+<!--创建链接按钮-->
+<div style="padding:5px;background:#fafafa;width:500px;border:1px solid #ccc">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-cancel">Cancel</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-reload">Refresh</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-search">Query</a>
+    <a href="#" class="easyui-linkbutton">text button</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-print">Print</a>
+</div>
+
+<div style="padding:5px;background:#fafafa;width:500px;border:1px solid #ccc">
+    <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-cancel">Cancel</a>
+    <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-reload">Refresh</a>
+    <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-search">Query</a>
+    <a href="#" class="easyui-linkbutton" plain="true">text button</a>
+    <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-print">Print</a>
+    <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-help"></a>
+    <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-save"></a>
+    <a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-back"></a>
+</div>
+
+<!--创建菜单按钮-->
+<div style="background:#fafafa;padding:5px;width:200px;border:1px solid #ccc">
+    <a href="#" class="easyui-menubutton" menu="#mm1" iconCls="icon-edit">Edit</a>
+    <a href="#" class="easyui-menubutton" menu="#mm2" iconCls="icon-help">Help</a>
+</div>
+<div id="mm1" style="width:150px;">
+    <div iconCls="icon-undo">Undo</div>
+    <div iconCls="icon-redo">Redo</div>
+    <div class="menu-sep"></div>
+    <div>Cut</div>
+    <div>Copy</div>
+    <div>Paste</div>
+    <div class="menu-sep"></div>
+    <div iconCls="icon-remove">Delete</div>
+    <div>Select All</div>
+</div>
+<div id="mm2" style="width:100px;">
+    <div>Help</div>
+    <div>Update</div>
+    <div>About</div>
+</div>
+
+<!--为网页创建边框布局-->
+
+<div class="easyui-layout" style="width:400px;height:200px;">
+    <div region="west" split="true" title="Navigator" style="width:150px;">
+        <p style="padding:5px;margin:0;">Select language:</p>
+        <ul>
+            <li><a href="javascript:void(0)" onclick="showcontent('java')">Java</a></li>
+            <li><a href="javascript:void(0)" onclick="showcontent('cshape')">C#</a></li>
+            <li><a href="javascript:void(0)" onclick="showcontent('vb')">VB</a></li>
+            <li><a href="javascript:void(0)" onclick="showcontent('erlang')">Erlang</a></li>
+        </ul>
+    </div>
+    <div id="content" region="center" title="Language" style="padding:5px;">
+    </div>
+</div>
+
+<!--在面板中创建复杂布局-->
+<div class="easyui-panel" title="Complex Panel Layout" iconCls="icon-search" collapsible="true" style="padding:5px;width:500px;height:250px;">
+    <div class="easyui-layout" fit="true">
+        <div region="north" border="false" class="p-search">
+            <label>Search:</label><input></input>
+        </div>
+        <div region="center" border="false">
+            <div class="easyui-layout" fit="true">
+                <div region="east" border="false" class="p-right">
+                    <img src="/images/msn.gif"/>
+                </div>
+                <div region="center" border="false" style="border:1px solid #ccc;">
+                    <div class="easyui-layout" fit="true">
+                        <div region="south" split="true" border="false" style="height:60px;">
+                            <textarea style="border:0;width:100%;height:100%;resize:none">Hi,I am easyui.</textarea>
+                        </div>
+                        <div region="center" border="false">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

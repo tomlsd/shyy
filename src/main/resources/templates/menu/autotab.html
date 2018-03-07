@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/easyui.css"  th:href="@{/css/easyui.css}" />
+    <link rel="stylesheet" type="text/css"  href="../../static/css/icon.css" th:href="@{/css/icon.css}" />
+    <script th:src="@{/scripts/jquery.min.js}" />
+    <script th:src="@{/scripts/jquery.easyui.min.js}" />
+    <script>
+        $(function(){
+            var index = 0;
+            var t = $('#tt');
+            var tabs = t.tabs('tabs');
+            setInterval(function(){
+                t.tabs('select', tabs[index].panel('options').title);
+                index++;
+                if (index >= tabs.length){
+                    index = 0;
+                }
+            }, 1000);
+        });
+    </script>
+
+</head>
+<body>
+<h2>Add autoplay tab demo</h2>
+<div class="demo-info" style="margin-bottom:10px">
+    <div class="demo-tip icon-tip"></div>
+    <div>The tab panel can be auto switched to next.</div>
+</div>
+
+<div id="tt" class="easyui-tabs" style="width:700px;height:270px;">
+    <div title="Shirt1" style="padding:20px;">
+        <img src="/images/shirt1.gif" />
+    </div>
+    <div title="Shirt2" style="padding:20px;">
+        <img src="/images/shirt2.gif" />
+    </div>
+    <div title="Shirt3" style="padding:20px;">
+        <img src="/images/shirt3.gif" />
+    </div>
+    <div title="Shirt4" style="padding:20px;">
+        <img src="/images/shirt4.gif" />
+    </div>
+    <div title="Shirt5" style="padding:20px;">
+        <img src="/images/shirt5.gif" />
+    </div>
+</div>
+</body>
+</html>
